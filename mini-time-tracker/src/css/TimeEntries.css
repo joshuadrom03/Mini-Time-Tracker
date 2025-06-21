@@ -1,0 +1,11 @@
+.time-entries-container{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    color:gray;
+    height: 60vh;
+    align-items: center;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    font-size: 12px;
+}

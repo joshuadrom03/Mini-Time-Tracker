@@ -1,21 +1,26 @@
 .navbar{
     background-color: rgb(34 211 238);
     display: flex;
-    font-size: 26px;
     align-items: center;
     justify-content: center;
     width: 40vw;
-    gap: 15vw;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
     padding: 10px;
     margin-top: 5vh;
+    font-size: 26px;
+    font-weight: bold;
+    gap: 15vw;
 }
 
 a{
     text-decoration: none;
     color: white;
 
+}
+
+a:hover{
+    color: gray;
 }
 
 li{

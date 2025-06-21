@@ -8,4 +8,59 @@
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     font-size: 12px;
+    max-height: 60vh;
+    gap: 3vh;
+}
+
+.input-div{
+    margin-top: 4vh;
+    display: flex;
+    align-items:center;
+    gap: 2vw;
+}
+
+#task-name{
+    display: flex; 
+    background-color: rgb(229, 229, 231);
+    border: none;
+    border-radius: 10px;
+    padding: 5px 50px;
+}
+
+#hours-worked{
+    background-color: rgb(229, 229, 231);
+    border: none;
+    border-radius: 10px;
+    padding: 5px 50px;
+}
+
+.button-div{
+    display: flex;
+    margin-top: 5vh;
+    gap: 3vw;
+}
+
+.clear-btn{
+    box-shadow: 2px 2px 2px gray;
+    font-size: 16px;
+    border:none;
+    padding: 15px 50px;
+    border-radius: 10px;
+}
+
+.clear-btn:hover{
+    cursor: pointer;
+}
+
+.add-task-btn{
+    box-shadow: 2px 2px 2px  gray;
+    font-size: 16px;
+    border:none;
+    padding: 15px 50px;
+    border-radius: 10px;
+    background-color: rgb(34 211 238);
+}
+
+.add-task-btn:hover{
+    cursor: pointer;
 }

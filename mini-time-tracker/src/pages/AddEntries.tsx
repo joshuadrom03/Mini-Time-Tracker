@@ -22,13 +22,16 @@ export const AddEntries = () => {
     }
 
     function handleClick() {
-    console.log("task name: ",taskName)
-    console.log("hours worked: ",hoursWorked)
 
     const newTask = {
         id: crypto.randomUUID(),
         name: taskName,
         hours: Number(hoursWorked)
+    }
+
+    if(!taskName || !hoursWorked){
+        alert("Please fill out all field in the form!")
+        return;
     }
 
     setTasks((prev) => [...prev, newTask])
@@ -40,7 +43,8 @@ export const AddEntries = () => {
             <div className="input-div">
                 <h2>Task Name:</h2>
                 <input 
-                type="text" 
+                type="text"
+                required
                 placeholder="Enter work task name..." 
                 name="taskName" 
                 id="task-name" 
@@ -52,6 +56,7 @@ export const AddEntries = () => {
                 <h2>Hours Worked:</h2>
                 <input 
                 type="number" 
+                required
                 placeholder="Enter hours worked..."
                 name="hoursWorked" 
                 id="hours-worked" 

@@ -2,11 +2,6 @@ import { useEffect } from "react";
 import { useTasks } from "../context/Context"
 import "../css/TimeEntries.css"
 
-/*
-    TODO: Add edit button functionality to each task
-    TODO: Add delete btn functionality to every task
-    *optionally add timer functionality
-*/
 
 export const TimeEntries = () => {
 
@@ -25,7 +20,6 @@ export const TimeEntries = () => {
     const deleteTask = (taskId : string) => {
         const newTasks = tasks.filter((task) => task.id !== taskId)
         setTasks(newTasks)
-
     }
 
     return(
@@ -39,7 +33,6 @@ export const TimeEntries = () => {
                         <p className="task-details">{task.name}</p>
                         <p className="task-details">Hours: {task.hours}</p>
                         <button className="delete-task" onClick={() => deleteTask(task.id)}>Delete</button>
-                        <button className="edit-task">Edit</button>
                     </div>
                 ))}
             </div>

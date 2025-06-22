@@ -29,8 +29,8 @@ export const TimeEntries = () => {
             <div className="entries-main">
                 {tasks.map((task) => (
                     <div className="task-card" key={task.name}>
-                        <p>Task: {task.name}</p>
-                        <p>Hours: {task.hours}</p>
+                        <p className="task-details">{task.name}</p>
+                        <p className="task-details">Hours: {task.hours}</p>
                         <button className="delete-task">Delete</button>
                         <button className="edit-task">Edit</button>
                     </div>

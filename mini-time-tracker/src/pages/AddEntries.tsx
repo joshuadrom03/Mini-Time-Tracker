@@ -6,8 +6,6 @@ import { useTasks } from "../context/Context"
     *optionally add timer function
 */
 
-
-
 export const AddEntries = () => {
 
     const {
@@ -31,6 +29,7 @@ export const AddEntries = () => {
         ...prev,
         { name: taskName, hours: Number(hoursWorked)},
     ]);
+    handleClear();
 }
 
     return(

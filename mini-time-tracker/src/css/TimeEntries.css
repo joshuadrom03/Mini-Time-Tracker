@@ -9,3 +9,44 @@
     border-bottom-right-radius: 15px;
     font-size: 12px;
 }
+
+.entries-main{
+    display: flex;
+    flex-direction: column;
+}
+
+.task-card{
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+    gap: 4vw;
+    border-bottom: 2px solid gray;
+    padding: 10px;
+}
+
+
+
+.delete-task{
+    padding: 5px 20px;
+    border-radius: 10px;
+    border: 2px solid gray;
+}
+
+.delete-task:hover{
+    cursor: pointer;
+    border: 2px solid black;
+}
+
+.edit-task{
+    padding: 5px 30px;
+    border-radius: 10px;
+    border: 2px solid gray;
+    background-color: rgb(34 211 238);
+    color: white;
+}
+
+.edit-task:hover{
+    cursor: pointer;
+    border: 2px solid black;
+}

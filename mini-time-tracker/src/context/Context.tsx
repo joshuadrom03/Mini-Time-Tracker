@@ -7,8 +7,8 @@ interface TaskContextType {
     setTaskName: React.Dispatch<React.SetStateAction<string>>;
     hoursWorked: string;
     setHoursWorked: React.Dispatch<React.SetStateAction<string>>;
-    totalHours: string;
-    setTotalHours: React.Dispatch<React.SetStateAction<string>>;
+    totalHours: number;
+    setTotalHours: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const TaskContext = createContext<TaskContextType | null>(null);
@@ -21,7 +21,7 @@ export const TaskProvider = ({children}: TaskProviderProps) => {
     const [tasks, setTasks] = useState<{name: string; hours: number}[]>([]);
     const [taskName, setTaskName] = useState("");
     const [hoursWorked, setHoursWorked] = useState("");
-    const [totalHours, setTotalHours] = useState("");
+    const [totalHours, setTotalHours] = useState(0);
 
     return(
         <TaskContext.Provider value={{

@@ -1,6 +1,6 @@
 # Mini Time Tracker
 
-[Live Demo](https://your-netlify-site.netlify.app) 🚀
+[Live Demo](https://aquamarine-liger-7d90a9.netlify.app/) 🚀
 
 A simple web app to track tasks and hours worked...
 

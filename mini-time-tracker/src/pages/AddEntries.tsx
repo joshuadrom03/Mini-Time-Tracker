@@ -25,10 +25,13 @@ export const AddEntries = () => {
     console.log("task name: ",taskName)
     console.log("hours worked: ",hoursWorked)
 
-    setTasks((prev: { name: string; hours: number}[]) => [
-        ...prev,
-        { name: taskName, hours: Number(hoursWorked)},
-    ]);
+    const newTask = {
+        id: crypto.randomUUID(),
+        name: taskName,
+        hours: Number(hoursWorked)
+    }
+
+    setTasks((prev) => [...prev, newTask])
     handleClear();
 }
 

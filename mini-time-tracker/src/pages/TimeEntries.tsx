@@ -3,8 +3,8 @@ import { useTasks } from "../context/Context"
 import "../css/TimeEntries.css"
 
 /*
-    TODO: Add edit button to each task
-    TODO: Add delete btn to every task
+    TODO: Add edit button functionality to each task
+    TODO: Add delete btn functionality to every task
     *optionally add timer functionality
 */
 
@@ -12,6 +12,7 @@ export const TimeEntries = () => {
 
     const {
         tasks,
+        setTasks,
         totalHours,
         setTotalHours,
     } = useTasks();
@@ -21,6 +22,12 @@ export const TimeEntries = () => {
         setTotalHours(total);
     }, [tasks, setTotalHours])
 
+    const deleteTask = (taskId : string) => {
+        const newTasks = tasks.filter((task) => task.id !== taskId)
+        setTasks(newTasks)
+
+    }
+
     return(
         <div className="time-entries-container">
             <div className="tasks-heading">
@@ -28,10 +35,10 @@ export const TimeEntries = () => {
             </div>
             <div className="entries-main">
                 {tasks.map((task) => (
-                    <div className="task-card" key={task.name}>
+                    <div className="task-card" key={task.id}>
                         <p className="task-details">{task.name}</p>
                         <p className="task-details">Hours: {task.hours}</p>
-                        <button className="delete-task">Delete</button>
+                        <button className="delete-task" onClick={() => deleteTask(task.id)}>Delete</button>
                         <button className="edit-task">Edit</button>
                     </div>
                 ))}

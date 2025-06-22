@@ -1,8 +1,14 @@
 import { createContext, useContext, useState, type ReactNode, } from "react";
 
+type Task = {
+    id: string;
+    name: string;
+    hours: number;
+}
+
 interface TaskContextType {
-    tasks: { name: string; hours: number}[];
-    setTasks: React.Dispatch<React.SetStateAction<{ name: string; hours: number}[]>>;
+    tasks: Task[];
+    setTasks: React.Dispatch<React.SetStateAction<Task[]>>;
     taskName: string;
     setTaskName: React.Dispatch<React.SetStateAction<string>>;
     hoursWorked: string;
@@ -18,7 +24,7 @@ interface TaskProviderProps {
 }
 
 export const TaskProvider = ({children}: TaskProviderProps) => {
-    const [tasks, setTasks] = useState<{name: string; hours: number}[]>([]);
+    const [tasks, setTasks] = useState<Task[]>([]);
     const [taskName, setTaskName] = useState("");
     const [hoursWorked, setHoursWorked] = useState("");
     const [totalHours, setTotalHours] = useState(0);

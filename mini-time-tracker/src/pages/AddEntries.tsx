@@ -1,22 +1,37 @@
-import { useState } from "react"
-import "../css/AddEntries.css"
 
-function handleClick(taskName: string,hoursWorked: number,setTasks : Function) {
-    console.log("task name: ",taskName)
-    console.log("hours worked: ",hoursWorked)
-    setTasks ((prev:[]) => [...prev, {name: taskName, hours: hoursWorked}])
-}
+import "../css/AddEntries.css"
+import { useTasks } from "../context/Context"
+
+/*
+    *optionally add timer function
+*/
+
+
 
 export const AddEntries = () => {
 
-    const [tasks,setTasks] = useState([])
-    const [taskName, setTaskName] = useState("")
-    const [hoursWorked, setHoursWorked] = useState(0)
+    const {
+        setTasks,
+        taskName,
+        setTaskName,
+        hoursWorked,
+        setHoursWorked,
+    } = useTasks();
 
     const handleClear = () =>{
         setTaskName("");
-        setHoursWorked(0);
+        setHoursWorked("");
     }
+
+    function handleClick() {
+    console.log("task name: ",taskName)
+    console.log("hours worked: ",hoursWorked)
+
+    setTasks((prev: { name: string; hours: number}[]) => [
+        ...prev,
+        { name: taskName, hours: Number(hoursWorked)},
+    ]);
+}
 
     return(
         <div className="add-container">
@@ -39,13 +54,13 @@ export const AddEntries = () => {
                 name="hoursWorked" 
                 id="hours-worked" 
                 value={hoursWorked}
-                onChange={(e) => setHoursWorked(Number(e.target.value))}
+                onChange={(e) => setHoursWorked(e.target.value)}
                  />
             </div>
-            
+
             <div className="button-div">
                 <button className="clear-btn" onClick={handleClear} >Clear</button>
-                <button className="add-task-btn" onClick={() => {handleClick(taskName,hoursWorked,setTasks)}}>Add Task</button>
+                <button className="add-task-btn" onClick={() => {handleClick()}}>Add Task</button>
             </div>
         </div>
         

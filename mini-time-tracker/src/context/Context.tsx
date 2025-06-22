@@ -1,0 +1,47 @@
+import { createContext, useContext, useState, type ReactNode, } from "react";
+
+interface TaskContextType {
+    tasks: { name: string; hours: number}[];
+    setTasks: React.Dispatch<React.SetStateAction<{ name: string; hours: number}[]>>;
+    taskName: string;
+    setTaskName: React.Dispatch<React.SetStateAction<string>>;
+    hoursWorked: string;
+    setHoursWorked: React.Dispatch<React.SetStateAction<string>>;
+    totalHours: string;
+    setTotalHours: React.Dispatch<React.SetStateAction<string>>;
+}
+
+const TaskContext = createContext<TaskContextType | null>(null);
+
+interface TaskProviderProps {
+    children: ReactNode;
+}
+
+export const TaskProvider = ({children}: TaskProviderProps) => {
+    const [tasks, setTasks] = useState<{name: string; hours: number}[]>([]);
+    const [taskName, setTaskName] = useState("");
+    const [hoursWorked, setHoursWorked] = useState("");
+    const [totalHours, setTotalHours] = useState("");
+
+    return(
+        <TaskContext.Provider value={{
+        tasks, 
+        setTasks, 
+        taskName, 
+        setTaskName, 
+        hoursWorked, 
+        setHoursWorked, 
+        totalHours, 
+        setTotalHours}}>
+            {children}
+        </TaskContext.Provider>
+    )
+}
+
+export const useTasks = () => {
+    const context = useContext(TaskContext);
+    if(!context) {
+        throw new Error("Must be used within a taskprovider")
+    }
+    return context
+} 

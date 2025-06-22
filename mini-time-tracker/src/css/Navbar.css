@@ -6,11 +6,12 @@
     width: 40vw;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
-    padding: 10px;
+    padding: 20px;
     margin-top: 5vh;
     font-size: 26px;
     font-weight: bold;
     gap: 15vw;
+    
 }
 
 a{
